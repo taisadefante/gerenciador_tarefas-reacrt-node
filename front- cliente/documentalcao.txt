@@ -1,0 +1,9 @@
+npx create-react-app calculadora
+
+- instalar bootstrap
+    npm install react-bootstrap bootstrap --save
+
+- biblioteca de teste
+    npm install @testing-library/react @testing-library/jest-dom --save-dev
+
+    
