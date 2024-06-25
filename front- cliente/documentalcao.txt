@@ -17,3 +17,9 @@ npm install axios --save
     npm install --save hookrouter
 
 npm install prop-types --save
+
+Acredito que esta oportunidade contribuirá significativamente para minha carreira e desenvolvimento.
+
+Acredito que esta oportunidade contribuirá significativamente para minha carreira e desenvolvimento. A oportunidade não apenas contribuirá para o meu desenvolvimento imediato, mas também me preparará para desafios futuros e me ajudará a alcançar meus objetivos de carreira a longo prazo.
+
+Rua da imperatriz, 184 casa 2 - Realengo - RJ
