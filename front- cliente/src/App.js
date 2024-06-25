@@ -1,11 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Calculadora from "./components/calculadora";
+import Cadastrar from "./components/Cadastrar/Cadastrar";
+import Atualizar from "./components/Atualizar/Atualizar";
+import Listar from "./components/Listar/Listar";
 
 function App() {
   return (
-    <div>
-      <Calculadora />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Listar />} />
+        <Route path="cadastrar" element={<Cadastrar />} />
+        <Route path="atualizar" element={<Atualizar />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
