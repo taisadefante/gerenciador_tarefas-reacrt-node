@@ -34,8 +34,8 @@ function Cadastrar() {
   }
 
   return (
-    <div>
-      <h3 className="text-center">Cadastrar</h3>
+    <div className="text-center">
+      <h1>Cadastrar</h1>
 
       <div>
         <Form validated={formValidado} noValidate onSubmit={cadastrar}>
@@ -79,6 +79,13 @@ function Cadastrar() {
           </Modal.Footer>
         </Modal>
       </div>
+      <footer>
+        <span>
+          Copyright © 2023 Tais Defante . Todos os direitos reservados.
+        </span>
+        <br />
+        <span>Contato: taisadefante@hotmail.com</span>
+      </footer>
     </div>
   );
 }
