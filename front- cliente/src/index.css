@@ -14,3 +14,7 @@ footer {
   margin-top: 40px;
   padding: 8px;
 }
+
+a {
+  text-decoration: none;
+}

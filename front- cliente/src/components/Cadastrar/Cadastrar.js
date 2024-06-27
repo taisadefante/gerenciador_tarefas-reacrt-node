@@ -4,6 +4,7 @@ import { Link, Route } from "react-router-dom";
 import Tarefa from "../../models/tarefa.model";
 import Listar from "../Listar/Listar";
 import Style from "./cadastrar.module.css";
+import Footer from "../footer/footer";
 
 function Cadastrar() {
   const [tarefa, setTarefa] = useState("");
@@ -79,13 +80,7 @@ function Cadastrar() {
           </Modal.Footer>
         </Modal>
       </div>
-      <footer>
-        <span>
-          Copyright © 2023 Tais Defante . Todos os direitos reservados.
-        </span>
-        <br />
-        <span>Contato: taisadefante@hotmail.com</span>
-      </footer>
+      <Footer />
     </div>
   );
 }

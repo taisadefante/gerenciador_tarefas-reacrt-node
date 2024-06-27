@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { Table } from "react-bootstrap";
+import { Table, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import ItensListaTarefas from "./itens-lista-tarefas";
 import Paginacao from "./paginacao";
+import Ordenacao from "./ordenacao";
+import Footer from "../footer/footer";
 
 function Listar() {
   const ITENS_POR_PAG = 6;
@@ -21,6 +23,19 @@ function Listar() {
     function obterTarefas() {
       const tarefasDb = localStorage["tarefas"];
       let listaTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
+
+      //ordenar
+      if (ordenarAsc) {
+        listaTarefas.sort((t1, t2) =>
+          t1.nome.toLowerCase() > t2.nome.toLowerCase() ? 1 : -1
+        );
+      } else if (ordenasDesc) {
+        listaTarefas.sort((t1, t2) =>
+          t1.nome.toLowerCase() < t2.nome.toLowerCase() ? 1 : -1
+        );
+      }
+
+      //paginar
       setTotalItens(listaTarefas.length);
 
       setTarefas(
@@ -31,7 +46,7 @@ function Listar() {
       obterTarefas();
       setCarregarTarefas(false);
     }
-  }, [carregarTarefas, paginaAtual]);
+  }, [carregarTarefas, paginaAtual, ordenarAsc, ordenasDesc]);
 
   function handleMudarPagina(pagina) {
     setPaginaAtual(pagina);
@@ -40,6 +55,17 @@ function Listar() {
 
   function handleOrdenar(event) {
     event.preventDefault();
+    if (!ordenarAsc && !ordenasDesc) {
+      setOdenarAsc(true);
+      setOrdenarDesc(false);
+    } else if (ordenarAsc) {
+      setOdenarAsc(false);
+      setOrdenarDesc(true);
+    } else {
+      setOdenarAsc(false);
+      setOrdenarDesc(false);
+    }
+    setCarregarTarefas(true);
   }
 
   return (
@@ -50,7 +76,8 @@ function Listar() {
           <tr>
             <th>
               <a href="/" onClick={handleOrdenar}>
-                Tarefa
+                Tarefa &nbsp;
+                <Ordenacao ordenarAsc={ordenarAsc} ordenarDesc={ordenasDesc} />
               </a>
             </th>
             <th>
@@ -77,13 +104,7 @@ function Listar() {
         mudarPagina={handleMudarPagina}
       />
 
-      <footer>
-        <span>
-          Copyright © 2023 Tais Defante . Todos os direitos reservados.
-        </span>
-        <br />
-        <span>Contato: taisadefante@hotmail.com</span>
-      </footer>
+      <Footer />
     </div>
   );
 }
