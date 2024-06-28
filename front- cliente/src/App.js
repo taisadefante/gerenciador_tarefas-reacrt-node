@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Listar />} />
         <Route path="cadastrar" element={<Cadastrar />} />
-        <Route path="atualizar" element={<Atualizar />} />
+        <Route path="atualizar/:id" element={<Atualizar />} />
       </Routes>
     </BrowserRouter>
   );

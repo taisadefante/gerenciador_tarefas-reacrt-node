@@ -3,18 +3,20 @@
 }
 
 h1 {
-  background: blue;
   font-size: 400px;
   padding: 10px;
   color: white !important;
+  margin: auto;
 }
 
-footer {
+.titulo {
+  display: flex;
   background: blue;
-  text-align: center;
-  margin-top: 40px;
-  padding: 8px;
-  color: white;
+  max-width: 100%;
+}
+
+.titulo img {
+  width: 8%;
 }
 
 a {
@@ -29,4 +31,13 @@ a {
 .link_continuar {
   color: white;
   text-decoration: none;
+}
+
+footer {
+  background: blue;
+  text-align: center;
+  margin-top: 20px;
+  padding: 8px;
+  color: white;
+  font-size: 0.8rem;
 }

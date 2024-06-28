@@ -8,9 +8,10 @@ import ItensListaTarefas from "./itens-lista-tarefas";
 import Paginacao from "./paginacao";
 import Ordenacao from "./ordenacao";
 import Footer from "../footer/footer";
+import Img from "../../img/tarefas.png";
 
 function Listar() {
-  const ITENS_POR_PAG = 6;
+  const ITENS_POR_PAG = 9;
 
   const [tarefas, setTarefas] = useState([]);
   const [carregarTarefas, setCarregarTarefas] = useState(true);
@@ -81,7 +82,12 @@ function Listar() {
 
   return (
     <div className="text-center">
-      <h1> Gerenciador de Tarefas</h1>
+      <div className="titulo">
+        <img src={Img} />
+
+        <h1> Gerenciador de Tarefas</h1>
+      </div>
+
       <Table striped bordered hover responsive>
         <thead>
           <tr>

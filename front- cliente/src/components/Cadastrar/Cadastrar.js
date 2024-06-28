@@ -4,6 +4,7 @@ import { Link, Route } from "react-router-dom";
 import Tarefa from "../../models/tarefa.model";
 import Listar from "../Listar/Listar";
 import Footer from "../footer/footer";
+import Img from "../../img/tarefas.png";
 
 function Cadastrar() {
   const [tarefa, setTarefa] = useState("");
@@ -35,7 +36,11 @@ function Cadastrar() {
 
   return (
     <div className="text-center">
-      <h1>Cadastrar</h1>
+      <div className="titulo">
+        <img src={Img} />
+
+        <h1> Cadastrar</h1>
+      </div>
 
       <div>
         <Form validated={formValidado} noValidate onSubmit={cadastrar}>
@@ -55,7 +60,7 @@ function Cadastrar() {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group className="text-center">
+          <Form.Group className="text-center mt-4 ">
             <Button variant="success" type="submit">
               Cadastrar
             </Button>
