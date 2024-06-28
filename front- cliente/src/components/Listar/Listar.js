@@ -18,11 +18,17 @@ function Listar() {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [ordenarAsc, setOdenarAsc] = useState(false);
   const [ordenasDesc, setOrdenarDesc] = useState(false);
+  const [filtroTarefa, setFiltroTarefa] = useState("");
 
   useEffect(() => {
     function obterTarefas() {
       const tarefasDb = localStorage["tarefas"];
       let listaTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
+
+      //filtrar
+      listaTarefas = listaTarefas.filter(
+        (t) => t.nome.toLowerCase().indexOf(filtroTarefa.toLowerCase()) >= 0
+      );
 
       //ordenar
       if (ordenarAsc) {
@@ -68,9 +74,14 @@ function Listar() {
     setCarregarTarefas(true);
   }
 
+  function handleFiltrar(event) {
+    setFiltroTarefa(event.target.value);
+    setCarregarTarefas(true);
+  }
+
   return (
     <div className="text-center">
-      <h1>Gerenciador de Tarefas</h1>
+      <h1> Gerenciador de Tarefas</h1>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
@@ -88,6 +99,18 @@ function Listar() {
                 </Button>
               </Link>
             </th>
+          </tr>
+          <tr>
+            <th>
+              <Form.Control
+                type="text"
+                value={filtroTarefa}
+                onChange={handleFiltrar}
+                placeholder="🔎"
+                className="filtro-tarefa"
+              />
+            </th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

@@ -3,7 +3,6 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { Link, Route } from "react-router-dom";
 import Tarefa from "../../models/tarefa.model";
 import Listar from "../Listar/Listar";
-import Style from "./cadastrar.module.css";
 import Footer from "../footer/footer";
 
 function Cadastrar() {
@@ -41,7 +40,7 @@ function Cadastrar() {
       <div>
         <Form validated={formValidado} noValidate onSubmit={cadastrar}>
           <Form.Group>
-            <Form.Label>Tarefa</Form.Label>
+            <Form.Label></Form.Label>
             <Form.Control
               type="text"
               placeholder="Digite a tarefa"
@@ -73,7 +72,7 @@ function Cadastrar() {
           <Modal.Body>Tarefa adicionada com sucesso!</Modal.Body>
           <Modal.Footer>
             <Button variant="success" onClick={handleFecharModal}>
-              <Link to="/" variant="success" className={Style.link_continuar}>
+              <Link to="/" variant="success" className="link_continuar">
                 Continuar
               </Link>
             </Button>
